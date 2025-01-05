@@ -16,15 +16,20 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function countCats(matrix) {
   let count = 0;
-  const array = matrix.split("");
-  for(letras of array){
-    let index = array.findIndex(s => s === letras);
-    if(index >= 0){
-      count++;
-      s2Arrow.splice(index, 1);
+  let columnsWithCatIdx = 0;
+
+  let columnCount = matrix[0].length;
+  if (matrix.length) {
+
+  for (let i = 0; i < columnCount; i++) {
+    for (let j = 0; j < matrix.length; j++) {
+      if (matrix[j][i] === '^^') {
+        columnsWithCatIdx++;
+      }
     }
-  }
-return count;
+  return columnsWithCatIdx;
+}
+}
 }
 
 module.exports = {
