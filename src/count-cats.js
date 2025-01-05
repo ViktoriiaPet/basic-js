@@ -18,19 +18,20 @@ function countCats(matrix) {
   let count = 0;
   let columnsWithCatIdx = 0;
 
-  let columnCount = matrix[0].length;
+  
   if (matrix.length) {
-
+  let columnCount = matrix[0].length;
   for (let i = 0; i < columnCount; i++) {
     for (let j = 0; j < matrix.length; j++) {
       if (matrix[j][i] === '^^') {
         columnsWithCatIdx++;
       }
     }
-  return columnsWithCatIdx;
 }
 }
+return columnsWithCatIdx;
 }
+
 
 module.exports = {
   countCats
