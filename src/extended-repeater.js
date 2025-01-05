@@ -18,6 +18,9 @@ const { NotImplementedError } = require('../extensions/index.js');
 function repeater(str, options) {
   sepGen = options.separator || '+';
   options.additionSeparator = options.additionSeparator || '|';
+  options.repeatTimes = options.repeatTimes || 1;
+  options.additionRepeatTimes = options.additionRepeatTimes || 1;
+  options.addition = options.addition || '';
   console.log(str, options)
   console.log(typeof options)
   let strOne = '';
@@ -28,7 +31,7 @@ function repeater(str, options) {
   options.addition = String(options.addition);
   for (let i = 0; i < options.repeatTimes; i++) {
     if (options.additionRepeatTimes > 1) {
-      adding = options.additionSeparator + options.addition;
+      adding = options.addition + options.additionSeparator;
     } else {
       adding = options.addition;
     }
@@ -37,12 +40,13 @@ function repeater(str, options) {
     }
     
     strOne += `${str}`+`${adding.repeat(options.additionRepeatTimes)}`
-    
+    console.log (strOne)
     strArrw.push(strOne);
   
     strOne = '';
   
     strResult = strArrw.join(sepGen)
+  
   }
   return strResult
 }
